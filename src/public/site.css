@@ -1,0 +1,56 @@
+body {
+    font-family: "Helvetica", "Arial", sans-serif;
+    background-color: lightblue;
+    line-height: 1.5;
+    padding: 4em 1em;
+}
+
+a {
+    border: coral 2px solid;
+    border-radius: 4px;
+    padding: 0.25rem;
+    color: coral;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+}
+
+a:hover {
+    background-color: coral;
+    color: white;
+}
+
+a + a {
+    margin-left: 1rem;
+}
+
+
+.site {
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 50em;
+}
+
+.header {
+    max-width: 1080px;
+    margin-bottom: 1rem;
+}
+
+.page-content {
+    max-width: 1080px;
+    padding: 1rem;
+    border-radius: 4px;
+    background: beige;
+}
+
+.message {
+    border: black 1px solid;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 3rem 0;
+}
+
+textarea {
+    width: 100%;
+    border-radius: 4px;
+}
