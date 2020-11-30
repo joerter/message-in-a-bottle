@@ -19,15 +19,17 @@
     [:a {:href "read-message"} "\uD83D\uDCE8 Read another message"]))
 
 (defn send-message
-  [] (layouts/default "Send Message"
-       [:p "Write your message below. Unfortunately, the paper can only hold 250 characters."]
-       (hf/form-to [:post "/send-message"]
-                   [:textarea {:name "message" :autofocus "true" :maxlength "250" :rows "10"}]
-                   [:input {:type "submit" :value "Send"}]
-                   (rf/anti-forgery-field))))
+  [validation-message]
+  (layouts/default "Send Message"
+    [:p "Write your message below. Unfortunately, the paper can only hold 250 characters."]
+    (if (nil? validation-message) [:span] [:p validation-message])
+    (hf/form-to [:post "/send-message"]
+                [:textarea {:name "message" :autofocus "true" :rows "10"}]
+                [:input {:type "submit" :value "Send"}]
+                (rf/anti-forgery-field))))
 
 (defn sent-message
-  []
+  [message-response]
   (layouts/default "Sent Message"
     [:h1 "Your message was sent!"]
     [:p "Would you like to read another message?"]
