@@ -2,7 +2,9 @@
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
-            [message-in-a-bottle.handlers :as handlers]))
+            [ring.adapter.jetty :refer :all]
+            [message-in-a-bottle.handlers :as handlers]
+            [environ.core :as env]))
 
 (defroutes app-routes
   (GET "/" [] (handlers/home))
@@ -14,3 +16,6 @@
 
 (def app
   (wrap-defaults app-routes site-defaults))
+
+(defn -main []
+  (run-jetty app {:port (or (env/env :port) 3000)}))
