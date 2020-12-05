@@ -3,7 +3,7 @@
             [environ.core :refer [env]]))
 
 (def redis-uri
-  (env :redis))
+  (env :redis-url))
 
 (def server1-conn {:pool {} :spec {:uri redis-uri}})
 (defmacro wcar* [& body] `(car/wcar server1-conn ~@body))
