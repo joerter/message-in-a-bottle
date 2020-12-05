@@ -17,5 +17,5 @@
 (def app
   (wrap-defaults app-routes site-defaults))
 
-(defn -main []
+(defn -main [& args]
   (run-jetty app {:port (or (env/env :port) 3000)}))
