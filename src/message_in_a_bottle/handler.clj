@@ -5,7 +5,7 @@
             [ring.adapter.jetty :refer :all]
             [message-in-a-bottle.handlers :as handlers]
             [environ.core :as env])
-  :gen-class)
+  (:gen-class))
 
 (defroutes app-routes
   (GET "/" [] (handlers/home))
