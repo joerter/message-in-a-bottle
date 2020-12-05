@@ -4,7 +4,8 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [ring.adapter.jetty :refer :all]
             [message-in-a-bottle.handlers :as handlers]
-            [environ.core :as env]))
+            [environ.core :as env])
+  :gen-class)
 
 (defroutes app-routes
   (GET "/" [] (handlers/home))
@@ -17,5 +18,5 @@
 (def app
   (wrap-defaults app-routes site-defaults))
 
-(defn -main [& args]
+(defn -main []
   (run-jetty app {:port (Integer. (or (env/env :port) 3000))}))
