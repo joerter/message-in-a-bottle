@@ -2,7 +2,7 @@
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
-            [ring.adapter.jetty :refer :all]
+            [ring.adapter.jetty :as ring]
             [message-in-a-bottle.handlers :as handlers]
             [environ.core :as env])
   (:gen-class))
@@ -19,4 +19,4 @@
   (wrap-defaults app-routes site-defaults))
 
 (defn -main []
-  (run-jetty app {:port (Integer. (or (env/env :port) 3000))}))
+  (ring/run-jetty app {:port (Integer. (or (env/env :port) "3000")) :join? false}))
