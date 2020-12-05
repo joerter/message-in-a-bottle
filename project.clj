@@ -9,9 +9,10 @@
                  [hiccup "1.0.5"]
                  [com.taoensso/carmine "3.1.0"]
                  [environ "1.2.0"]]
-  :main message-in-a-bottle.handler
+  :main ^:skip-aot message-in-a-bottle.handler
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler message-in-a-bottle.handler/app}
+  :uberjar-name "mib-standalone.jar"
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.2"]]}})
