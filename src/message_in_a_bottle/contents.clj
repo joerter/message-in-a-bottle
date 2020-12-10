@@ -6,7 +6,7 @@
 (defn home
   []
   (layouts/default "Message in a Bottle"
-    [:p "You found a bottle on the shore! Hi!"]
+    [:p "You found a bottle on the shore!"]
     [:a {:href "/read-message"} "\uD83D\uDCE8 Read message"]))
 
 (defn read-message
